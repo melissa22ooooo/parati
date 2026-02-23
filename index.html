@@ -2,49 +2,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Para Pio Pio ❤️🐥</title>
+<title>Para mi Pio Pio ❤️🐥</title>
 
 <style>
 body{
     margin:0;
     padding:0;
     height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#1e1e2f,#2b2b52,#3a1c71);
-    font-family:'Georgia', serif;
+    background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
     overflow:hidden;
+    font-family:'Georgia', serif;
     color:white;
 }
 
 .container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
     text-align:center;
     background:rgba(255,255,255,0.08);
-    padding:50px;
+    padding:40px;
     border-radius:25px;
     backdrop-filter: blur(10px);
     box-shadow:0 0 40px rgba(255,105,180,0.4);
+    z-index:2;
     max-width:600px;
 }
 
 h1{
-    font-size:38px;
-    margin-bottom:15px;
+    font-size:36px;
+    margin-bottom:20px;
     text-shadow:0 0 15px pink;
-}
-
-#message{
-    font-size:18px;
-    margin-bottom:25px;
-    min-height:120px;
-    line-height:1.6;
-}
-
-.languages{
-    margin-top:15px;
-    font-size:16px;
-    opacity:0.9;
 }
 
 .button{
@@ -64,17 +53,23 @@ h1{
     transform:scale(1.1);
 }
 
-/* Corazones */
-.heart{
+/* Frases cayendo */
+.falling{
     position:absolute;
     font-size:18px;
-    animation:float 12s linear infinite;
-    color:#ff99ac;
+    color:#ffb3c6;
+    white-space:nowrap;
+    animation:fall linear infinite;
+    opacity:0.8;
 }
 
-@keyframes float{
-    from{transform:translateY(100vh);}
-    to{transform:translateY(-10vh);}
+@keyframes fall{
+    from{
+        transform:translateY(-10vh);
+    }
+    to{
+        transform:translateY(110vh);
+    }
 }
 </style>
 </head>
@@ -83,21 +78,13 @@ h1{
 
 <div class="container">
     <h1>Para mi Pio Pio ❤️🐥</h1>
-
-    <div id="message"></div>
-
-    <div class="languages">
-        Te amo 💖<br>
-        I love you 🇺🇸<br>
-        Je t'aime 🇫🇷<br>
-        Ti amo 🇮🇹<br>
-        Ich liebe dich 🇩🇪<br>
-        Eu te amo 🇧🇷<br>
-        사랑해 🇰🇷<br>
-        愛してる 🇯🇵
-    </div>
-
-    <br>
+    <p>
+        Eres muy bonito, por dentro y por fuera.<br>
+        Te amo demasiado.<br>
+        Eres especial para mí.<br>
+        Eres una prioridad en mi vida.<br>
+        Siempre voy a elegirte, Pio Pio ❤️🐥
+    </p>
 
     <a href="https://youtu.be/WBvMmwTLmD8?si=gXFuFPYfNUYf5u03" target="_blank" class="button">
         🎵 Tú – Los Elegantes de Jerez
@@ -106,31 +93,38 @@ h1{
     <a href="https://youtu.be/TX-1dI8t6WM?si=bd1iMt_VSt3kNZVm" target="_blank" class="button">
         🎵 Amor – Emmanuel Cortez
     </a>
-
 </div>
 
 <script>
-const text = "Pio Pio… eres demasiado bonito, no solo por fuera, sino por lo que eres. Eres especial para mí de una manera que no puedo explicar fácilmente. Eres una prioridad en mi vida. Te amo demasiado, más de lo que imaginas. ❤️";
+const phrases = [
+"Te amo demasiado ❤️",
+"Eres mi prioridad 🐥",
+"Eres muy bonito 💖",
+"Siempre tú ✨",
+"Pio Pio ❤️🐥",
+"Eres especial para mí 🌙",
+"Te amo en todos los idiomas 💞",
+"I love you 💌",
+"Je t'aime 💕",
+"Siempre voy a elegirte 💍",
+"Eres mi persona favorita 💫"
+];
 
-let i = 0;
-function typeWriter(){
-    if(i < text.length){
-        document.getElementById("message").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter,45);
-    }
-}
-typeWriter();
+function createFallingText(){
+    const text = document.createElement("div");
+    text.className = "falling";
+    text.innerHTML = phrases[Math.floor(Math.random()*phrases.length)];
+    text.style.left = Math.random()*100 + "vw";
+    text.style.animationDuration = (6 + Math.random()*6) + "s";
+    text.style.fontSize = (14 + Math.random()*12) + "px";
+    document.body.appendChild(text);
 
-/* Corazones flotando */
-for(let i=0;i<20;i++){
-    let heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="💖";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(8+Math.random()*8)+"s";
-    document.body.appendChild(heart);
+    setTimeout(()=>{
+        text.remove();
+    },12000);
 }
+
+setInterval(createFallingText,500);
 </script>
 
 </body>
