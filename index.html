@@ -1,131 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Para mi Pio Pio ❤️🐥</title>
+<title>Enlace GitHub</title>
 
 <style>
-body{
-    margin:0;
-    padding:0;
-    height:100vh;
-    background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-    overflow:hidden;
-    font-family:'Georgia', serif;
-    color:white;
-}
+  body {
+    background-color: #0d1117;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 
-.container{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    text-align:center;
-    background:rgba(255,255,255,0.08);
-    padding:40px;
-    border-radius:25px;
-    backdrop-filter: blur(10px);
-    box-shadow:0 0 40px rgba(255,105,180,0.4);
-    z-index:2;
-    max-width:600px;
-}
+  .github-btn {
+    text-decoration: none;
+    background: linear-gradient(135deg, #6e40c9, #8b5cf6);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(139,92,246,0.6);
+    transition: all 0.3s ease;
+  }
 
-h1{
-    font-size:36px;
-    margin-bottom:20px;
-    text-shadow:0 0 15px pink;
-}
-
-.button{
-    display:inline-block;
-    margin:10px;
-    padding:12px 25px;
-    background:linear-gradient(45deg,#ff4d6d,#ff99ac);
-    border-radius:30px;
-    text-decoration:none;
-    color:white;
-    font-weight:bold;
-    box-shadow:0 0 20px rgba(255,77,109,0.8);
-    transition:0.3s;
-}
-
-.button:hover{
-    transform:scale(1.1);
-}
-
-/* Frases cayendo */
-.falling{
-    position:absolute;
-    font-size:18px;
-    color:#ffb3c6;
-    white-space:nowrap;
-    animation:fall linear infinite;
-    opacity:0.8;
-}
-
-@keyframes fall{
-    from{
-        transform:translateY(-10vh);
-    }
-    to{
-        transform:translateY(110vh);
-    }
-}
+  .github-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(139,92,246,1);
+  }
 </style>
 </head>
 
 <body>
-
-<div class="container">
-    <h1>Para mi Pio Pio ❤️🐥</h1>
-    <p>
-        Eres muy bonito, por dentro y por fuera.<br>
-        Te amo demasiado.<br>
-        Eres especial para mí.<br>
-        Eres una prioridad en mi vida.<br>
-        Siempre voy a elegirte, Pio Pio ❤️🐥
-    </p>
-
-    <a href="https://youtu.be/WBvMmwTLmD8?si=gXFuFPYfNUYf5u03" target="_blank" class="button">
-        🎵 Tú – Los Elegantes de Jerez
-    </a>
-
-    <a href="https://youtu.be/TX-1dI8t6WM?si=bd1iMt_VSt3kNZVm" target="_blank" class="button">
-        🎵 Amor – Emmanuel Cortez
-    </a>
-</div>
-
-<script>
-const phrases = [
-"Te amo demasiado ❤️",
-"Eres mi prioridad 🐥",
-"Eres muy bonito 💖",
-"Siempre tú ✨",
-"Pio Pio ❤️🐥",
-"Eres especial para mí 🌙",
-"Te amo en todos los idiomas 💞",
-"I love you 💌",
-"Je t'aime 💕",
-"Siempre voy a elegirte 💍",
-"Eres mi persona favorita 💫"
-];
-
-function createFallingText(){
-    const text = document.createElement("div");
-    text.className = "falling";
-    text.innerHTML = phrases[Math.floor(Math.random()*phrases.length)];
-    text.style.left = Math.random()*100 + "vw";
-    text.style.animationDuration = (6 + Math.random()*6) + "s";
-    text.style.fontSize = (14 + Math.random()*12) + "px";
-    document.body.appendChild(text);
-
-    setTimeout(()=>{
-        text.remove();
-    },12000);
-}
-
-setInterval(createFallingText,500);
-</script>
-
+  <a class="github-btn" href="https://github.com/USUARIO" target="_blank">
+    💻 Visita mi GitHub
+  </a>
 </body>
 </html>
