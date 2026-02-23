@@ -13,31 +13,58 @@ body{
     justify-content:center;
     align-items:center;
     background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    font-family: 'Georgia', serif;
+    font-family:'Georgia', serif;
     text-align:center;
+    overflow:hidden;
     color:white;
 }
 
+/* Contenedor */
 .container{
     background:rgba(255,255,255,0.15);
     padding:40px;
     border-radius:20px;
     backdrop-filter: blur(10px);
-    box-shadow:0 0 25px rgba(0,0,0,0.2);
+    box-shadow:0 0 25px rgba(255,255,255,0.4);
+    animation:fadeIn 3s ease-in-out;
 }
 
-h1{
-    font-size:40px;
-    margin-bottom:10px;
+/* Animación aparición */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
-p{
+/* Corazones */
+.heart{
+    position:absolute;
+    color:white;
+    font-size:20px;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh) scale(1);}
+    to{transform:translateY(-10vh) scale(1.5);}
+}
+
+/* Botón */
+.button{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 30px;
+    background:white;
+    color:#ff4d6d;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
     font-size:18px;
-    margin-bottom:25px;
+    box-shadow:0 0 15px rgba(255,255,255,0.8);
+    transition:0.3s;
 }
 
-iframe{
-    border-radius:15px;
+.button:hover{
+    transform:scale(1.1);
 }
 </style>
 </head>
@@ -46,22 +73,24 @@ iframe{
 
 <div class="container">
     <h1>Para ti ❤️</h1>
-    <p>Porque cada canción me recuerda a ti...</p>
+    <p>Desde que llegaste, todo tiene más sentido...</p>
 
-   <a href="https://youtu.be/WBvMmwTLmD8" target="_blank" 
-style="display:inline-block;
-padding:15px 30px;
-background:white;
-color:#ff4d6d;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
-font-size:18px;
-box-shadow:0 0 15px rgba(0,0,0,0.2);">
-💖 Escuchar nuestra canción
-</a>
-
+    <a href="https://youtu.be/WBvMmwTLmD8" target="_blank" class="button">
+        💖 Escuchar nuestra canción
+    </a>
 </div>
+
+<!-- Corazones flotando -->
+<script>
+for(let i=0;i<20;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
+    document.body.appendChild(heart);
+}
+</script>
 
 </body>
 </html>
